@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --color-base: #0a0b0f;
+  --color-base-deep: #050609;
+  --color-surface: #14161d;
+  --color-fg: #f2f1ec;
+  --color-fg-glass: #fdfdfc;
+  --color-muted: #8b8f9c;
+  --color-hairline: rgba(255, 255, 255, 0.08);
+
+  --color-accent: #e8965a;
+  --color-accent-soft: rgba(232, 150, 90, 0.16);
+
+  --color-service-web: #6ea8ff;
+  --color-service-seo: #5ee896;
+  --color-service-automation: #3ee1f5;
+  --color-service-chatbot: #d19bff;
+  --color-service-voice: #ff8fc4;
+  --color-service-digital: #ffcf5c;
+
+  --color-glass-fill: rgba(255, 255, 255, 0.06);
+  --color-glass-border: rgba(255, 255, 255, 0.14);
+
+  --radius-glass: 1.25rem;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-fg);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-base-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.glass-panel {
+  background: var(--color-glass-fill);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-glass);
+}
+
+.text-glow-accent {
+  text-shadow: 0 0 24px var(--color-accent-soft);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes waveform-bar {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes graph-draw {
+  from {
+    stroke-dashoffset: var(--graph-length, 300);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes travel-dot {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
