@@ -16,11 +16,16 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const navToggle = document.querySelector(".nav-toggle");
 const navMobile = document.querySelector(".nav-mobile");
 if (navToggle && navMobile) {
+  navToggle.setAttribute("aria-expanded", "false");
   navToggle.addEventListener("click", () => {
-    navMobile.classList.toggle("open");
+    const isOpen = navMobile.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
   });
   navMobile.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => navMobile.classList.remove("open"))
+    a.addEventListener("click", () => {
+      navMobile.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    })
   );
 }
 

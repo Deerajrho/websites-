@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+/* Fonts are loaded via <link rel="preconnect"> + <link rel="stylesheet">
+   in each page's <head>, not @import — @import blocks parallel download
+   and delays first paint. See index.html <head> for the actual tags. */
 
 /* ---------------------------------------------------------
    Tokens — Deep Medical Blue / Premium Teal design system
@@ -26,8 +28,11 @@
   --color-emergency-tint: #fee2e2;
 
   /* kept for compatibility with existing component rules;
-     rose now carries the secondary/teal accent role */
-  --color-rose: #0d9488;
+     rose now carries the secondary/teal accent role.
+     Uses the darker teal (not --color-secondary) because
+     #0d9488 fails WCAG AA (3.74:1) as text/gradient-text color;
+     #0f766e passes at 5.47:1 */
+  --color-rose: #0f766e;
   --color-rose-soft: #99f6e4;
 
   --color-ink: #334155;
@@ -49,7 +54,10 @@
   --shadow-card: 0 15px 40px rgba(15, 23, 42, 0.08);
 
   --gradient-hero: linear-gradient(135deg, #eff6ff 0%, #f8fafc 55%, #ffffff 100%);
-  --gradient-cta: linear-gradient(90deg, #1e40af, #0d9488);
+  /* teal stop uses #0f766e, not --color-secondary (#0d9488) — white text
+     at 16px over #0d9488 measures 3.74:1, failing WCAG AA (needs 4.5:1);
+     #0f766e passes at 5.47:1 */
+  --gradient-cta: linear-gradient(90deg, #1e40af, #0f766e);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -97,6 +105,28 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 12px;
+  z-index: 300;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 12px 20px;
+  border-radius: 0 0 10px 10px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .container {
@@ -470,6 +500,27 @@ h3 {
   font-style: normal;
   color: var(--color-primary);
   position: relative;
+  display: inline-block;
+}
+.hero-copy h1 em::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: -8px;
+  height: 11px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16'%3E%3Cpath d='M3,10 C40,4 90,14 130,7 C155,3 175,9 197,6' fill='none' stroke='%231e40af' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: underline-draw 0.9s 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+@keyframes underline-draw {
+  to {
+    transform: scaleX(1);
+  }
 }
 .hero-copy p.lede {
   font-size: 1.12rem;
@@ -520,6 +571,10 @@ h3 {
   position: relative;
   width: 82%;
   max-width: 380px;
+  /* overrides the generic .motif accent (sky-blue) — that color sits too
+     close in hue/lightness to the pale blob behind it and washes out;
+     the deeper primary blue keeps the signature hero motif visible */
+  color: var(--color-primary);
 }
 .hero-badge {
   position: absolute;
@@ -696,7 +751,7 @@ h3 {
   margin-bottom: 4px;
 }
 .doctor-role {
-  color: var(--color-secondary);
+  color: var(--color-rose);
   font-weight: 600;
   font-size: 0.92rem;
   margin-bottom: 10px;
@@ -1191,6 +1246,20 @@ footer {
     padding: 40px 26px;
   }
   .topbar-group:last-child {
+    display: none;
+  }
+  /* flex-wrap packs 4 stats unevenly on narrow phones (e.g. 3-then-1);
+     a fixed 2x2 grid wraps predictably at every width down to 320px */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+  /* "Al-Hannan Clinic & Maternity Center" gets close to running out of
+     room next to the 46px brand mark + 44px nav toggle below ~380px;
+     drop the subtitle and keep just the primary name. Scoped to the
+     navbar only — the footer's brand block has plenty of room. */
+  .navbar .brand-text span {
     display: none;
   }
 }
