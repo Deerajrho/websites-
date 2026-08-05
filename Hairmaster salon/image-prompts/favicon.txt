@@ -1,0 +1,3 @@
+Output: output/brand/favicon-mark.png — 1:1 square, 512×512px minimum, must read clearly at 16px
+
+Minimal flat brand mark for "Pigment" hair salon: a single simplified droplet or paint-swatch-chip shape, filled with a smooth gradient from deep espresso-brown (#3b2417) at the bottom to warm foil-gold (#e4c24c) at the top — evoking a hair-color formula swatch. Centered on a solid dark background (#1e1c15), generous padding around the shape, no outline, no text, no logos, no watermark, no other elements. Extremely simple flat vector-style icon, high contrast, must remain legible and recognizable when scaled down to 16×16px.

@@ -1,0 +1,3 @@
+Output: output/gallery/copper-correction.png — 4:5 portrait aspect ratio
+
+Photorealistic editorial hair-photography close-up, cropped from shoulders to top of head, side angle, showing sleek straight-to-wavy hair in a rich, even vibrant copper-red tone (color level 6, corrected up from a near-black level 1 base — the final result should read fully even and saturated, no banding or brassy patches). Glossy, reflective finish under warm directional studio light. Shallow depth of field with a blurred cream and walnut salon-interior background. Palette: deep copper and auburn red tones against warm cream. No visible face, no text, no logos, no watermark. High-end salon portfolio photography, shot on a full-frame camera with a fast prime lens.
