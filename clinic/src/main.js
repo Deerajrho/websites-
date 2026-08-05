@@ -50,6 +50,28 @@ if (progressBar) {
 
 if (!prefersReducedMotion) {
   /* ---------------------------------------------------------
+     Aurora mesh: slow ambient drift so the light behind the
+     glass never looks static, plus a gentle scroll parallax
+     (each blob at a different rate) so the mesh reads as real
+     depth behind the panels rather than a flat backdrop image.
+  --------------------------------------------------------- */
+  gsap.utils.toArray(".aurora span").forEach((blob, i) => {
+    gsap.to(blob, {
+      x: gsap.utils.random(-50, 50),
+      y: gsap.utils.random(-40, 40),
+      duration: gsap.utils.random(16, 24),
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+    gsap.to(blob, {
+      y: `+=${80 + i * 40}`,
+      ease: "none",
+      scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1.2 },
+    });
+  });
+
+  /* ---------------------------------------------------------
      Home hero entrance sequence
   --------------------------------------------------------- */
   if (document.querySelector(".hero")) {
