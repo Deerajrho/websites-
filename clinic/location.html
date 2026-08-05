@@ -134,27 +134,27 @@
         <h2>Tell us a little, and we'll call you back.</h2>
         <p>Prefer to talk now? Call 9155356502 — our team is ready to help.</p>
       </div>
-      <form class="card" style="max-width:640px;margin:0 auto;display:grid;gap:18px;grid-template-columns:1fr 1fr;" data-reveal onsubmit="return false;">
-        <div style="grid-column:span 2;display:grid;gap:8px;">
-          <label for="name" style="font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--color-ink-soft);">Full Name</label>
-          <input id="name" name="name" type="text" required placeholder="Your name" style="padding:13px 16px;border-radius:10px;border:1px solid var(--color-line);background:var(--color-bg);font:inherit;" />
+      <form class="card appointment-form" data-reveal onsubmit="return false;">
+        <div class="field full">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required placeholder="Your name" />
         </div>
-        <div style="display:grid;gap:8px;">
-          <label for="phone" style="font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--color-ink-soft);">Phone Number</label>
-          <input id="phone" name="phone" type="tel" required placeholder="10-digit number" style="padding:13px 16px;border-radius:10px;border:1px solid var(--color-line);background:var(--color-bg);font:inherit;" />
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" required placeholder="10-digit number" />
         </div>
-        <div style="display:grid;gap:8px;">
-          <label for="branch" style="font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--color-ink-soft);">Preferred Branch</label>
-          <select id="branch" name="branch" style="padding:13px 16px;border-radius:10px;border:1px solid var(--color-line);background:var(--color-bg);font:inherit;">
+        <div class="field">
+          <label for="branch">Preferred Branch</label>
+          <select id="branch" name="branch">
             <option>Pupri Health Point</option>
             <option>Al-Hannan Clinic &amp; Maternity Center</option>
           </select>
         </div>
-        <div style="grid-column:span 2;display:grid;gap:8px;">
-          <label for="note" style="font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--color-ink-soft);">What brings you in?</label>
-          <textarea id="note" name="note" rows="3" placeholder="Briefly describe your concern" style="padding:13px 16px;border-radius:10px;border:1px solid var(--color-line);background:var(--color-bg);font:inherit;resize:vertical;"></textarea>
+        <div class="field full">
+          <label for="note">What brings you in?</label>
+          <textarea id="note" name="note" rows="3" placeholder="Briefly describe your concern"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" style="grid-column:span 2;justify-content:center;">Request Appointment</button>
+        <button type="submit" class="btn btn-primary full" style="justify-content:center;">Request Appointment</button>
       </form>
     </div>
   </section>

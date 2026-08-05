@@ -356,8 +356,8 @@ h3 {
   display: none;
   background: none;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
 }
@@ -560,6 +560,9 @@ h3 {
 }
 .grid-services {
   grid-template-columns: repeat(4, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 .card {
   background: var(--color-card);
@@ -1049,6 +1052,51 @@ footer {
   border: 1px solid var(--color-line);
 }
 
+/* ---------------------------------------------------------
+   Appointment form
+--------------------------------------------------------- */
+.appointment-form {
+  max-width: 640px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr 1fr;
+}
+.appointment-form .field {
+  display: grid;
+  gap: 8px;
+}
+.appointment-form .full {
+  grid-column: span 2;
+}
+.appointment-form label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-soft);
+}
+.appointment-form input,
+.appointment-form select,
+.appointment-form textarea {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+  font: inherit;
+}
+.appointment-form textarea {
+  resize: vertical;
+}
+@media (max-width: 640px) {
+  .appointment-form {
+    grid-template-columns: 1fr;
+  }
+  .appointment-form .full {
+    grid-column: span 1;
+  }
+}
+
 .section {
   padding: 90px 0;
 }
@@ -1080,7 +1128,8 @@ footer {
    Responsive
 --------------------------------------------------------- */
 @media (max-width: 1020px) {
-  .grid-services {
+  .grid-services,
+  .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
   .why-grid {
@@ -1126,6 +1175,7 @@ footer {
 
 @media (max-width: 640px) {
   .grid-services,
+  .grid-3,
   .grid-doctors,
   .grid-reviews {
     grid-template-columns: 1fr;
