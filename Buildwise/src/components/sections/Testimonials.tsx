@@ -40,7 +40,7 @@ export default function Testimonials() {
   const current = TESTIMONIALS[index];
 
   return (
-    <section className="bg-base px-6 py-24">
+    <section className="bg-base/85 px-6 py-24">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-10 text-center">
         <EyebrowBadge>Client Stories</EyebrowBadge>
 

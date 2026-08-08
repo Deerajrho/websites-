@@ -65,7 +65,7 @@ const ITEMS = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="border-y border-hairline bg-base px-6 py-24">
+    <section className="border-y border-hairline bg-base/85 px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection className="mb-14 flex flex-col gap-4">
           <AnimatedItem>

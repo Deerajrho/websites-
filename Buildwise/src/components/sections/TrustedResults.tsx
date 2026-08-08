@@ -12,7 +12,7 @@ const STATS = [
 
 export default function TrustedResults() {
   return (
-    <section className="border-y border-hairline bg-base px-6 py-20">
+    <section className="border-y border-hairline bg-base/85 px-6 py-20">
       <AnimatedSection
         as="section"
         className="mx-auto grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"

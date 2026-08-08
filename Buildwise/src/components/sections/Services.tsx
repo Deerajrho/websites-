@@ -127,7 +127,7 @@ const SERVICES: {
 
 export default function Services() {
   return (
-    <section id="services" className="bg-base px-6 py-24">
+    <section id="services" className="bg-base/85 px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection className="mb-12 flex flex-col gap-4">
           <AnimatedItem>

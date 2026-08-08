@@ -16,11 +16,12 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
     if (reduceMotion) return;
 
     const safari = isSafari();
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     const lenis = new Lenis({
       duration: 1.1,
       lerp: safari ? 0.12 : 0.1,
       smoothWheel: true,
-      syncTouch: !safari,
+      syncTouch: isTouchDevice ? false : !safari,
     });
     lenisRef.current = lenis;
 

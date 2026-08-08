@@ -54,7 +54,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-base px-6 py-24">
+    <section id="contact" className="bg-base/85 px-6 py-24">
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 flex flex-col items-center gap-4 text-center">
           <EyebrowBadge>Let&apos;s Talk</EyebrowBadge>

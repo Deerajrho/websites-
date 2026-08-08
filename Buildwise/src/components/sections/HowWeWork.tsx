@@ -45,7 +45,7 @@ const STEPS = [
 
 export default function HowWeWork() {
   return (
-    <section id="process" className="bg-base px-6 py-24">
+    <section id="process" className="bg-base/85 px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <AnimatedSection className="mb-16 flex flex-col gap-4">
           <AnimatedItem>

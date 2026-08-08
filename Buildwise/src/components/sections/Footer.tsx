@@ -13,7 +13,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-hairline bg-base-deep px-6 py-12">
+    <footer className="border-t border-hairline bg-base-deep/85 px-6 py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div className="flex flex-col gap-2">
           <span className="font-display text-sm font-semibold text-fg">

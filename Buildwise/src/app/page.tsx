@@ -1,3 +1,4 @@
+import BackgroundAnimation from "@/components/BackgroundAnimation";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import TrustedResults from "@/components/sections/TrustedResults";
@@ -11,17 +12,20 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div id="top" className="flex flex-1 flex-col bg-base">
-      <Nav />
-      <Hero />
-      <TrustedResults />
-      <Services />
-      <FeaturedWork />
-      <HowWeWork />
-      <WhyChooseUs />
-      <Testimonials />
-      <Contact />
-      <Footer />
+    <div id="top" className="relative flex flex-1 flex-col">
+      <BackgroundAnimation />
+      <div className="relative z-10 flex flex-1 flex-col">
+        <Nav />
+        <Hero />
+        <TrustedResults />
+        <Services />
+        <FeaturedWork />
+        <HowWeWork />
+        <WhyChooseUs />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 }

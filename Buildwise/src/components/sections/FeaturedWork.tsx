@@ -37,7 +37,7 @@ const PROJECTS: Project[] = [
 
 export default function FeaturedWork() {
   return (
-    <section id="work" className="bg-base px-6 py-24">
+    <section id="work" className="bg-base/85 px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection className="mb-12 flex flex-col gap-4">
           <AnimatedItem>
