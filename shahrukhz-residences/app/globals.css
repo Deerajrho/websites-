@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Palette sampled from the Danube presentation: deep navy, ocean blue, sky, sand, champagne.
+   Static site: no animations or transitions anywhere. */
+@theme inline {
+  --color-navy: #0c3354;      /* header, dark sections, footer (brochure background) */
+  --color-ocean: #0b62a0;     /* buttons and links */
+  --color-sky: #e6f2fb;       /* light blue sections */
+  --color-sand: #f8f5ef;      /* page background */
+  --color-champagne: #d9c4a1; /* accents on navy */
+  --color-ink: #0d2236;
+  --color-line: #d4e1ec;      /* hairlines on light backgrounds */
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-cormorant);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem; /* anchor links land below the sticky header */
+  }
+  body {
+    @apply bg-sand font-sans text-ink antialiased;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ocean);
+    outline-offset: 3px;
+  }
+  /* Native <details> accordions: hide the default marker, we draw our own. */
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
