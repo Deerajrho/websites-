@@ -133,7 +133,8 @@ export const Carousel = ({
       >
         <div className="mb-8 flex items-end justify-between gap-6">
           <div className="min-w-0 flex-1">{header}</div>
-          <div className="flex shrink-0 gap-3">
+          {/* Touch screens swipe instead, so the arrows only show for mouse users. */}
+          <div className="flex shrink-0 gap-3 pointer-coarse:hidden">
             <button
               type="button"
               aria-label={`Previous: ${label}`}
