@@ -20,13 +20,13 @@ export default function Footer() {
           </ul>
         </nav>
         <address className="not-italic">
-          <h2 className="font-sans text-sm font-semibold text-white/70">Marketed by</h2>
-          <p className="mt-4 font-semibold">{contact.company}</p>
-          <ul className="mt-2 space-y-1 text-sm">
+          <h2 className="font-sans text-sm font-semibold text-white/70">Shahrukhz Residences enquiries</h2>
+          <ul className="mt-4 space-y-1 text-sm">
             <li><a href={contact.phoneHref} className="hover:text-champagne">{contact.phone}</a></li>
             <li><a href={`mailto:${contact.email}`} className="hover:text-champagne">{contact.email}</a></li>
             <li>{contact.city}</li>
           </ul>
+          <p className="mt-3 text-xs text-white/65">Marketed by {contact.company}</p>
         </address>
       </div>
       <div className="border-t border-white/10">

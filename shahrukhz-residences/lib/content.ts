@@ -145,7 +145,7 @@ export const gallery = {
 export const priority = {
   eyebrow: "Priority access",
   title: "Be first in line for the best units",
-  body: "Share your details and an Optimum Point consultant will send the current price list, floor plans and the units still available.",
+  body: "Share your details and a sales consultant will send the current price list, floor plans and the units still available.",
 };
 
 export const masterPlan = {
@@ -200,15 +200,17 @@ export const faq = {
 
 export const closing = {
   eyebrow: "Contact",
-  title: "Book a private consultation",
-  body: "Speak to Optimum Point Business Solutions about prices, the units still available and how to reserve.",
+  title: "Shahrukhz Residences enquiries",
+  body: "Ask about prices, the units still available and how to reserve. We reply on WhatsApp, by phone or by email.",
+  // Kept on the page: the contact details are the agency's, so visitors must be told who answers.
+  agent: "Enquiries are handled by Optimum Point Business Solutions, marketing agent for Shahrukhz Residences.",
 };
 
 export const form = {
   interests: residences.items.map((r) => r.type),
   messageLabel: "Anything else?",
   messagePlaceholder: "For example: a sea-view 1 bedroom, best time to call",
-  submit: "Send via WhatsApp",
+  submit: "Submit",
   emailAlt: "Or email us",
 };
 

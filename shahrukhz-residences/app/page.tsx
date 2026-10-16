@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import MobileActionBar from "@/components/layout/MobileActionBar";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 import Amenities from "@/components/sections/Amenities";
 import Brochure from "@/components/sections/Brochure";
 import Contact from "@/components/sections/Contact";
@@ -19,6 +20,7 @@ import Residences from "@/components/sections/Residences";
 export default function Home() {
   return (
     <>
+      <SmoothScroll />
       <Header />
       <main>
         <Hero />

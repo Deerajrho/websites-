@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 /* Palette sampled from the Danube presentation: deep navy, ocean blue, sky, sand, champagne.
-   Static site: no animations or transitions anywhere. */
+   Motion: smooth scrolling (components/layout/SmoothScroll.tsx), the carousels
+   (components/ui/specials-linear-carousel.tsx) and the section reveal at the bottom of this file. */
 @theme inline {
   --color-navy: #0c3354;      /* header, dark sections, footer (brochure background) */
   --color-ocean: #0b62a0;     /* buttons and links */
@@ -17,6 +18,10 @@
 @layer base {
   html {
     scroll-padding-top: 5rem; /* anchor links land below the sticky header */
+    scrollbar-width: none; /* hide the page scrollbar; wheel, touch and keyboard scrolling still work */
+  }
+  html::-webkit-scrollbar {
+    display: none;
   }
   body {
     @apply bg-sand font-sans text-ink antialiased;
@@ -40,5 +45,24 @@
   }
   summary::-webkit-details-marker {
     display: none;
+  }
+}
+
+/* Section reveal: each section's content fades and rises as it scrolls into view.
+   Driven by the scroll position itself (no JavaScript), so it stays smooth and reverses if you scroll back.
+   Browsers without scroll-driven animations, and reduced-motion users, simply see the content. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main > section:not(#top) > * {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
   }
 }

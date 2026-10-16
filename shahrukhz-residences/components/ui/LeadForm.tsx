@@ -62,7 +62,8 @@ export default function LeadForm({ variant = "card", dark = false }: { variant?:
         {form.submit}
       </button>
       <p className={`text-xs sm:col-span-2 ${dark ? "text-white/65" : "text-ink/65"}`}>
-        Your details go only to Optimum Point Business Solutions.{" "}
+        Submitting opens WhatsApp with your details filled in; press send to finish. Your details go only to{" "}
+        {contact.company}.{" "}
         <a
           href={`mailto:${contact.email}?subject=${encodeURIComponent("Shahrukhz Residences enquiry")}`}
           className="underline underline-offset-4"
