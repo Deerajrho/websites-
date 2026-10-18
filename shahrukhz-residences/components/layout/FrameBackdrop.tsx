@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-// The fly-through behind the whole page: 100 frames (public/frames, from the "Modern beachfront house"
+// The fly-through behind the whole page: 240 frames (public/frames, from the "Modern beachfront house"
 // animation) drawn on a fixed canvas, scrubbed by scroll position — from the open sea at the top, over the
 // beach and through the house, to the aerial view as the footer arrives.
 // - Frame 1 is the CSS background, so something shows before JavaScript runs.
@@ -10,7 +10,7 @@ import { useEffect, useRef } from "react";
 //   arrives, the nearest loaded one is drawn.
 // - The shown frame eases toward the target, so the film glides instead of stepping.
 // - Reduced-motion users get the still first frame, and nothing else is downloaded.
-const COUNT = 100;
+const COUNT = 240;
 const src = (i: number) => `/frames/frame_${String(i + 1).padStart(3, "0")}.webp`;
 
 export default function FrameBackdrop() {
