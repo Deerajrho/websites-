@@ -1,61 +1,60 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { Carousel } from "@/components/ui/specials-linear-carousel";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { enquiry, newTab, residences, whatsappLink } from "@/lib/content";
 
-// One card per unit type, each with a WhatsApp enquiry prefilled for that type, in an endless slider.
-// Cards are image-inset tiles: the photo sits inside the card's padding, price badge floating on it.
+// The price list as a tide table: one ruled row per unit type, all nine visible at once, each with a
+// WhatsApp enquiry prefilled for that type. Phones keep thumbnail, name, price and the enquiry button.
 export default function Residences() {
+  const label = "chart-label block text-muted";
   return (
-    <section id="residences" className="card rounded-3xl p-6 sm:p-10 xl:col-span-12">
-      <Carousel
-        label="Residence types"
-        header={<SectionHeading eyebrow={residences.eyebrow} title={residences.title} intro={residences.intro} />}
-        autoplay
-        itemClassName="w-[85cqw] sm:w-[calc((100cqw-1rem)/2)] 2xl:w-[calc((100cqw-2rem)/3)]"
-        items={residences.items.map((r) => (
-          <article key={r.type} className="lift group flex w-full flex-col rounded-3xl border border-slate-100 bg-slate-50 p-2">
-            <div className="relative overflow-hidden rounded-2xl">
+    <section id="residences">
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <SectionHeading eyebrow={residences.eyebrow} title={residences.title} intro={residences.intro} />
+        <p className="chart-label text-muted">AED · fully furnished</p>
+      </div>
+      <ul className="mt-12 border-t border-ink/30">
+        {residences.items.map((r, i) => (
+          <li
+            key={r.type}
+            className="group grid grid-cols-[4.5rem_1fr_auto] items-center gap-4 border-b border-line py-4 transition-colors duration-300 hover:bg-white/45 sm:grid-cols-[2.5rem_8rem_1fr_8rem_9rem_auto] sm:gap-6"
+          >
+            <span aria-hidden="true" className="chart-label hidden pl-2 text-muted sm:block">{String(i + 1).padStart(2, "0")}</span>
+            <div className="overflow-hidden">
               <Image
                 src={r.image}
                 alt={`${r.type} interior (artist's impression)`}
-                width={900}
-                height={560}
-                sizes="(min-width: 1536px) 30vw, (min-width: 640px) 45vw, 85vw"
-                className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-105"
+                width={400}
+                height={300}
+                sizes="8rem"
+                className="aspect-square w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-110 sm:aspect-[4/3]"
               />
-              <p className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 backdrop-blur">
-                Fully furnished
-              </p>
-              <p className="absolute bottom-3 right-3 rounded-xl bg-white px-3 py-2 text-right shadow-float">
-                <span className="block text-[0.7rem] font-semibold uppercase tracking-wider text-slate-500">From</span>
-                <span className="font-display text-xl font-extrabold tracking-tight text-clay">AED {r.from}</span>
-              </p>
             </div>
-            <div className="flex flex-1 flex-col p-4">
-              <h3 className="text-2xl">{r.type}</h3>
-              <dl className="mt-3 flex-1 space-y-1 text-sm">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-slate-500">Views</dt>
-                  <dd className="text-right text-slate-800">{r.views}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-slate-500">Average price</dt>
-                  <dd className="text-slate-800">AED {r.average}</dd>
-                </div>
-              </dl>
-              <a
-                href={whatsappLink(enquiry(`a ${r.type}`))}
-                {...newTab}
-                className="mt-4 inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-900 transition-colors duration-300 hover:border-clay hover:bg-clay hover:text-white"
-              >
-                {residences.cta} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+            <div>
+              <h3 className="text-xl sm:text-3xl">{r.type}</h3>
+              <p className="mt-1 text-sm text-muted">{r.views}</p>
+              <p className="mt-1 font-display text-lg text-accent sm:hidden">AED {r.from}</p>
             </div>
-          </article>
+            <p className="hidden sm:block">
+              <span className={label}>From</span>
+              <span className="font-display text-2xl text-accent">{r.from}</span>
+            </p>
+            <p className="hidden sm:block">
+              <span className={label}>Average</span>
+              <span className="text-ink">{r.average}</span>
+            </p>
+            <a
+              href={whatsappLink(enquiry(`a ${r.type}`))}
+              {...newTab}
+              aria-label={`${residences.cta}: ${r.type}`}
+              className="chart-label inline-flex h-11 min-w-11 items-center justify-center gap-2 border border-ink/40 text-ink transition-colors duration-300 hover:border-transparent hover:bg-ocean hover:text-white sm:px-4"
+            >
+              <span className="hidden sm:inline">{residences.cta}</span>
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </li>
         ))}
-      />
+      </ul>
     </section>
   );
 }

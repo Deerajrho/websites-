@@ -138,7 +138,7 @@ export const Carousel = ({
             <button
               type="button"
               aria-label={`Previous: ${label}`}
-              className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-900 transition-[scale,border-color,color] duration-300 hover:border-clay hover:text-clay motion-safe:hover:scale-105"
+              className="panel relative z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full text-ink transition-[scale,border-color,color] duration-300 hover:border-accent hover:text-accent motion-safe:hover:scale-105"
               onClick={() => step(-1)}
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -146,7 +146,7 @@ export const Carousel = ({
             <button
               type="button"
               aria-label={`Next: ${label}`}
-              className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl bg-clay text-white transition-[scale,background-color] duration-300 hover:bg-clay-hi motion-safe:hover:scale-105"
+              className="sea relative z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full motion-safe:hover:scale-105"
               onClick={() => step(1)}
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />

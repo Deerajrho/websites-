@@ -21,12 +21,14 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
     window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
   }
 
+  // Chart-style fields: a single rule underneath that turns accent (and thicker) on focus.
+  // Colours come from the tone tokens, so the same form works in light and dark water.
   const field =
-    "mt-2 h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm font-normal normal-case tracking-normal text-slate-900 placeholder:text-slate-500 transition-[border-color,box-shadow,background-color] duration-200 hover:border-slate-300 focus:border-clay focus:bg-white focus:outline-none focus:ring-4 focus:ring-clay/10 focus-visible:outline-none";
-  const label = "text-xs font-semibold uppercase tracking-wider text-slate-700";
+    "mt-1 h-12 w-full border-0 border-b border-line bg-transparent px-0 font-sans text-base font-normal normal-case tracking-normal text-ink placeholder:text-muted transition-[border-color,box-shadow] duration-200 hover:border-accent/60 focus:border-accent focus:shadow-[0_1px_0_0_var(--accent)] focus:outline-none focus-visible:outline-none";
+  const label = "chart-label text-muted";
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 text-left sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="grid gap-x-6 gap-y-5 text-left sm:grid-cols-2">
       <label className={label}>
         Full name
         <input name="name" autoComplete="name" required className={field} />
@@ -56,16 +58,16 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
       )}
       <button
         type="submit"
-        className="min-h-12 cursor-pointer rounded-xl bg-clay px-6 text-sm font-semibold text-white shadow-float transition-[scale,background-color] duration-300 hover:bg-clay-hi motion-safe:hover:scale-[1.02] sm:col-span-2"
+        className="sea chart-label mt-2 min-h-12 cursor-pointer px-6 sm:col-span-2"
       >
         {form.submit}
       </button>
-      <p className="text-xs text-slate-500 sm:col-span-2">
+      <p className="text-xs text-muted sm:col-span-2">
         Submitting opens WhatsApp with your details filled in; press send to finish. Your details go only to{" "}
         {contact.company}.{" "}
         <a
           href={`mailto:${contact.email}?subject=${encodeURIComponent("Shahrukhz Residences enquiry")}`}
-          className="font-semibold text-clay underline underline-offset-4 hover:text-clay-hi"
+          className="font-semibold text-accent underline underline-offset-4 hover:text-ink"
         >
           {form.emailAlt}
         </a>

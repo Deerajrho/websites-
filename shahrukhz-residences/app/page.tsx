@@ -1,6 +1,8 @@
+import FrameBackdrop from "@/components/layout/FrameBackdrop";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import MobileActionBar from "@/components/layout/MobileActionBar";
+import Pane from "@/components/layout/Pane";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Amenities from "@/components/sections/Amenities";
 import Brochure from "@/components/sections/Brochure";
@@ -9,41 +11,39 @@ import Faq from "@/components/sections/Faq";
 import Gallery from "@/components/sections/Gallery";
 import Hero from "@/components/sections/Hero";
 import Intro from "@/components/sections/Intro";
-import KeyFacts from "@/components/sections/KeyFacts";
 import Location from "@/components/sections/Location";
 import MasterPlan from "@/components/sections/MasterPlan";
 import PaymentPlan from "@/components/sections/PaymentPlan";
-import PriorityAccess from "@/components/sections/PriorityAccess";
 import Residences from "@/components/sections/Residences";
 
-// App-style shell: sticky sidebar on desktop, and the sections laid out as a 12-column bento board.
-// Each section sets its own column span; pairs that sit side by side are listed next to each other.
+// The fly-through plays behind the whole page as you scroll (sea, beach, house, courtyard, aerial);
+// the sections float over it as panes, light seafoam in the first half, deep ocean in the second.
 // Each section's copy lives in lib/content.ts.
 export default function Home() {
+  const pair = "grid gap-16 xl:grid-cols-12 xl:gap-12";
   return (
     <>
       <SmoothScroll />
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-4 p-3 sm:gap-6 sm:p-4 lg:grid-cols-[17rem_minmax(0,1fr)] lg:p-6">
-        <Header />
-        <div className="min-w-0 space-y-4 sm:space-y-6">
-          <main className="grid grid-cols-1 gap-4 sm:gap-6 xl:grid-cols-12">
-            <Hero />
-            <KeyFacts />
-            <Intro />
-            <Residences />
-            <PaymentPlan />
-            <MasterPlan />
-            <Amenities />
-            <Gallery />
-            <Location />
-            <PriorityAccess />
-            <Faq />
-            <Brochure />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
-      </div>
+      <FrameBackdrop />
+      <Header />
+      <main>
+        <Hero />
+        <Pane tone="shore" label="01 · Shoreline"><Intro /></Pane>
+        <Pane tone="shore" label="02 · Residences"><Residences /></Pane>
+        <Pane tone="shore" label="03 · Terms & plans" className="space-y-28">
+          <PaymentPlan />
+          <MasterPlan />
+        </Pane>
+        <Pane tone="deep" label="04 · Amenities"><Amenities /></Pane>
+        <Pane tone="deep" label="05 · Gallery"><Gallery /></Pane>
+        <Pane tone="deep" label="06 · Location"><Location /></Pane>
+        <Pane tone="deep" label="07 · Questions" className={pair}>
+          <Faq />
+          <Brochure />
+        </Pane>
+        <Pane tone="deep" label="08 · Contact"><Contact /></Pane>
+      </main>
+      <Footer />
       <MobileActionBar />
     </>
   );

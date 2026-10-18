@@ -4,9 +4,9 @@
 export const contact = {
   company: "Optimum Point Business Solutions",
   city: "Dubai, UAE",
-  phone: "+971-52-527-5032",
-  phoneHref: "tel:+971525275032",
-  whatsapp: "971525275032",
+  phone: "+971-52-267-6172",
+  phoneHref: "tel:+971522676172",
+  whatsapp: "971522676172",
   email: "info@optimumpointbiz.com",
 };
 
@@ -25,7 +25,7 @@ export const seo = {
 
 // Shown in the footer: who runs this page and whose project it is.
 export const disclosure =
-  "This page is published by Optimum Point Business Solutions to market Shahrukhz Residences. It is not the developer's official website. Shahrukhz Residences is developed by Danube Properties. Prices, payment plans and availability are taken from the developer's sales presentation and may change; we confirm current figures on enquiry. Images are artist's impressions.";
+  "This page is published by Shahrukhz Residences by Danube Business Solutions to market Shahrukhz Residences. It is not the developer's official website. Shahrukhz Residences is developed by Danube Properties. Prices, payment plans and availability are taken from the developer's sales presentation and may change; we confirm current figures on enquiry. Images are artist's impressions.";
 
 export const nav = [
   { title: "Residences", href: "#residences" },
@@ -41,7 +41,8 @@ const img = (name: string) => `/images/${name}.webp`;
 
 export const hero = {
   eyebrow: "Dubai Maritime City · Dubai",
-  title: "Shahrukhz Residences by Danube",
+  title: "Shahrukhz Residences",
+  titleTail: "by Danube",
   price: "Furnished sea-view homes from AED 1.65M",
   body: "Studios to three-bedroom residences on the water, with more than 40 amenities spread across three decks and handover planned for Q4 2029.",
   chip: "30/70 payment plan",
@@ -203,7 +204,7 @@ export const closing = {
   title: "Shahrukhz Residences enquiries",
   body: "Ask about prices, the units still available and how to reserve. We reply on WhatsApp, by phone or by email.",
   // Kept on the page: the contact details are the agency's, so visitors must be told who answers.
-  agent: "Enquiries are handled by Optimum Point Business Solutions, marketing agent for Shahrukhz Residences.",
+  agent: "Enquiries are handled by Shahrukhz Residences , marketing agent for Shahrukhz Residences.",
 };
 
 export const form = {

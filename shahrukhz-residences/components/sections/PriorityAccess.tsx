@@ -6,7 +6,7 @@ import { priority } from "@/lib/content";
 // Tinted tile so the second form reads as its own offer, not a repeat of the hero.
 export default function PriorityAccess() {
   return (
-    <section className="hidden rounded-3xl border border-clay/15 bg-clay-soft p-10 shadow-float lg:block xl:col-span-5">
+    <section className="hidden rounded-3xl border border-navy/15 bg-navy-soft p-10 shadow-float lg:block xl:col-span-5">
       <SectionHeading compact eyebrow={priority.eyebrow} title={priority.title} intro={priority.body} />
       <div className="mt-8 rounded-2xl bg-white p-6 shadow-float">
         <LeadForm />
