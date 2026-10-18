@@ -7,8 +7,9 @@
    Two pane tones, each a set of CSS variables, so every component adapts to the pane it sits in:
    - .shore  translucent seafoam (matches the sea and sand frames), navy text
    - .deep   translucent ocean-to-abyss, foam-white text
-   Pane opacity (90% / 94%) is set so text contrast holds whatever frame is behind, checked against
-   white and black. Motion is transform-only and switches off for reduced-motion users. */
+   Panes are frosted glass: a lighter tint plus a backdrop blur that turns the film behind into moving colour.
+   Each tone also brightens/darkens what it blurs (--glass), so text contrast holds over the frames: the
+   blurred film never reaches pure black or white (frame averages sit between 127 and 186 grey). Motion is transform-only and switches off for reduced-motion users. */
 @theme inline {
   --color-ocean: #0369a1;  /* white text 5.9:1 */
   --color-lagoon: #0f766e; /* white text 5.5:1 */
@@ -34,10 +35,11 @@
     --ink: #0b2545;
     /* Contrast on the pane over a black frame (the worst case): */
     --body: #2c4a60;   /* 6.5:1 */
-    --muted: #3f5b70;  /* 5:1 */
+    --muted: #344f63;  /* 5:1 over the blurred film, 4:1 over pure black */
     --line: rgb(11 37 69 / 0.16);
     --accent: #075985; /* 5.3:1 */
-    --pane: linear-gradient(160deg, rgb(240 253 250 / 0.9), rgb(224 242 254 / 0.9));
+    --pane: linear-gradient(160deg, rgb(240 253 250 / 0.74), rgb(224 242 254 / 0.7));
+    --glass: blur(22px) saturate(1.6) brightness(1.1);
     color-scheme: light;
     color: var(--body);
   }
@@ -48,7 +50,8 @@
     --muted: #93b8cc;  /* 4.7:1 */
     --line: rgb(255 255 255 / 0.14);
     --accent: #67e8f9;
-    --pane: linear-gradient(160deg, rgb(11 59 92 / 0.94), rgb(4 23 43 / 0.94));
+    --pane: linear-gradient(160deg, rgb(11 59 92 / 0.7), rgb(4 23 43 / 0.72));
+    --glass: blur(22px) saturate(1.6) brightness(0.4);
     color-scheme: dark;
     color: var(--body);
   }
@@ -98,11 +101,16 @@
     background-position: 100% 0;
   }
 }
-/* A section's floating pane: the tone's translucent gradient, a hairline edge and a long soft shadow. */
+/* A section's floating pane: frosted glass over the film. The tone's tint and backdrop filter, a light
+   top edge catching the sun, and a long soft shadow. */
 @utility pane {
   background-image: var(--pane);
-  border: 1px solid var(--line);
-  box-shadow: 0 40px 90px -50px rgb(4 23 43 / 0.6);
+  -webkit-backdrop-filter: var(--glass);
+  backdrop-filter: var(--glass);
+  border: 1px solid rgb(255 255 255 / 0.22);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 40px 90px -50px rgb(4 23 43 / 0.6);
 }
 /* Horizontal strips: a thin aqua scrollbar so mouse users can see and drag it. */
 @utility strip {

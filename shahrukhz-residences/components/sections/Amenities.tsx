@@ -8,7 +8,7 @@ export default function Amenities() {
   return (
     <section id="amenities">
       <SectionHeading eyebrow={amenities.eyebrow} title={amenities.title} intro={amenities.intro} />
-      <ul className="strip -mx-6 mt-12 flex snap-x snap-mandatory scroll-px-6 gap-5 overflow-x-auto px-6 pb-6 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:-mx-14 lg:scroll-px-14 lg:px-14">
+      <ul className="strip -mx-5 mt-12 flex snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 pb-6 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:-mx-14 lg:scroll-px-14 lg:px-14">
         {amenities.items.map((a, i) => (
           <li key={a.title} className="group w-[72vw] shrink-0 snap-start sm:w-[20rem]">
             <div className="overflow-hidden">

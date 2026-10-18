@@ -6,7 +6,7 @@ import { brochure } from "@/lib/content";
 // Beside the FAQ: a framed slip with what's inside, then the short form.
 export default function Brochure() {
   return (
-    <section className="self-start border border-line p-6 sm:p-10 xl:col-span-5">
+    <section className="self-start border border-line p-5 sm:p-10 xl:col-span-5">
       <SectionHeading compact eyebrow={brochure.eyebrow} title={brochure.title} intro={brochure.body} />
       <ul className="mt-6 space-y-2">
         {brochure.points.map((p) => (

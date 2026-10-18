@@ -100,9 +100,10 @@ export default function FrameBackdrop() {
   return (
     <div aria-hidden="true" className="fixed inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: `url(${src(0)})` }}>
       <canvas ref={ref} className="h-full w-full" />
-      {/* Cools the warm sand and stone toward the site's blues, and darkens the top edge under the header. */}
-      <div className="absolute inset-0 bg-sky-200 opacity-25 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-linear-to-b from-abyss/40 via-transparent via-25% to-abyss/30" />
+      {/* Cools the warm sand and stone toward the site's blues without dimming the film, and shades the top
+          edge under the header. */}
+      <div className="absolute inset-0 bg-cyan-300 opacity-20 mix-blend-soft-light" />
+      <div className="absolute inset-0 bg-linear-to-b from-abyss/30 via-transparent via-20% to-transparent" />
     </div>
   );
 }

@@ -15,11 +15,11 @@ export default function Location() {
   });
   return (
     <section id="location" className="grid items-center gap-14 lg:grid-cols-12">
-      <svg aria-hidden="true" viewBox="-112 -112 224 224" className="mx-auto w-full max-w-lg lg:col-span-6">
+      <svg aria-hidden="true" viewBox="-112 -112 224 224" className="order-last mx-auto w-full max-w-lg lg:order-none lg:col-span-6">
         {[5, 10, 15, 20, 25].map((m) => (
           <g key={m}>
             <circle r={m * ring} className="fill-none stroke-line" strokeWidth="0.5" strokeDasharray={m === max ? undefined : "1.5 2"} />
-            <text x="1.5" y={-m * ring - 1.5} className="fill-muted font-mono" fontSize="4.5">{m} min</text>
+            <text x="1.5" y={-m * ring - 1.5} className="fill-muted font-mono text-[6px] sm:text-[4.5px]">{m} min</text>
           </g>
         ))}
         <line x1={-max * ring} x2={max * ring} y1="0" y2="0" className="stroke-line" strokeWidth="0.4" />
@@ -28,7 +28,7 @@ export default function Location() {
         {pts.map((p, i) => (
           <g key={location.places[i].name}>
             <circle cx={p.x} cy={p.y} r="2.2" className="fill-accent" />
-            <text x={p.x + 3.5} y={p.y + 1.6} className="fill-ink font-mono" fontSize="5">
+            <text x={p.x + 3.5} y={p.y + 1.6} className="fill-ink font-mono text-[7px] sm:text-[5px]">
               {String(i + 1).padStart(2, "0")}
             </text>
           </g>

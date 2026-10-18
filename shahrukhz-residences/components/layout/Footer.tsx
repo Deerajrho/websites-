@@ -8,10 +8,10 @@ export default function Footer() {
   return (
     <footer className="bg-linear-to-b from-abyss to-[#020d18] text-white/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div aria-hidden="true" className="chart-label flex items-center gap-4 border-t border-white/10 pt-6 text-white/60">
-          <span>Dubai Maritime City</span>
+        <div aria-hidden="true" className="chart-label flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/10 pt-6 text-white/60">
+          <span className="whitespace-nowrap">Dubai Maritime City</span>
           <span className="h-px flex-1 bg-white/10" />
-          <span>N 25°16′ · E 55°16′</span>
+          <span className="whitespace-nowrap">N 25°16′ · E 55°16′</span>
         </div>
         <div className="grid gap-10 py-14 md:grid-cols-12">
           <div className="md:col-span-4">
