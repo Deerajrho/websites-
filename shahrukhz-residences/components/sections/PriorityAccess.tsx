@@ -3,14 +3,13 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { priority } from "@/lib/content";
 
 // Desktop only: phones already have the hero form and the bottom bar, a third form would only add scrolling.
+// Tinted tile so the second form reads as its own offer, not a repeat of the hero.
 export default function PriorityAccess() {
   return (
-    <section className="hidden bg-sky py-24 lg:block">
-      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
-        <SectionHeading eyebrow={priority.eyebrow} title={priority.title} intro={priority.body} />
-        <div className="rounded-xl bg-white p-8 shadow-xl">
-          <LeadForm />
-        </div>
+    <section className="hidden rounded-3xl border border-clay/15 bg-clay-soft p-10 shadow-float lg:block xl:col-span-5">
+      <SectionHeading compact eyebrow={priority.eyebrow} title={priority.title} intro={priority.body} />
+      <div className="mt-8 rounded-2xl bg-white p-6 shadow-float">
+        <LeadForm />
       </div>
     </section>
   );

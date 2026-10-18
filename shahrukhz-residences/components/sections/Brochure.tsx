@@ -3,24 +3,21 @@ import LeadForm from "@/components/ui/LeadForm";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { brochure } from "@/lib/content";
 
+// Narrow tile beside the FAQ: what's inside as check chips, then the short form.
 export default function Brochure() {
   return (
-    <section className="bg-navy py-20 text-white lg:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
-        <div>
-          <SectionHeading eyebrow={brochure.eyebrow} title={brochure.title} intro={brochure.body} dark />
-          <ul className="mt-6 space-y-3">
-            {brochure.points.map((p) => (
-              <li key={p} className="flex gap-3">
-                <Check className="mt-1 h-4 w-4 shrink-0 text-champagne" aria-hidden="true" />
-                {p}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-xl bg-white p-6 text-ink sm:p-8">
-          <LeadForm />
-        </div>
+    <section className="card rounded-3xl p-6 sm:p-10 xl:col-span-5">
+      <SectionHeading compact eyebrow={brochure.eyebrow} title={brochure.title} intro={brochure.body} />
+      <ul className="mt-6 flex flex-wrap gap-2">
+        {brochure.points.map((p) => (
+          <li key={p} className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-700">
+            <Check className="h-4 w-4 text-clay" aria-hidden="true" />
+            {p}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-8 border-t border-slate-100 pt-8">
+        <LeadForm />
       </div>
     </section>
   );

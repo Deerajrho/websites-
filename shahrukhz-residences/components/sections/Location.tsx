@@ -1,37 +1,33 @@
 import Image from "next/image";
-import { Clock, MapPin } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { location } from "@/lib/content";
 
+// Drive times as a timetable (name, dotted leader, minutes) beside the render masked into a tall pill.
 export default function Location() {
   return (
-    <section id="location" className="bg-sky py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.2fr]">
-        <div>
-          <SectionHeading eyebrow={location.eyebrow} title={location.title} intro={location.intro} />
-          <Image
-            src={location.image.src}
-            alt={location.image.alt}
-            width={1000}
-            height={1150}
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            className="mt-8 hidden aspect-[4/3] w-full rounded-xl object-cover lg:block"
-          />
-        </div>
-        <ul className="grid content-start gap-3 sm:grid-cols-2">
+    <section id="location" className="card rounded-3xl p-6 sm:p-10 xl:col-span-7">
+      <SectionHeading compact eyebrow={location.eyebrow} title={location.title} intro={location.intro} />
+      <div className="mt-8 grid gap-8 sm:grid-cols-5">
+        <Image
+          src={location.image.src}
+          alt={location.image.alt}
+          width={1000}
+          height={1150}
+          sizes="(min-width: 1280px) 20vw, 40vw"
+          className="hidden h-full max-h-[30rem] w-full rounded-full border border-slate-100 object-cover shadow-float sm:col-span-2 sm:block"
+        />
+        <ol className="divide-y divide-slate-100 sm:col-span-3">
           {location.places.map((p) => (
-            <li key={p.name} className="flex items-center justify-between gap-4 rounded-xl border border-line bg-white px-5 py-4">
-              <span className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 shrink-0 text-ocean" aria-hidden="true" />
-                {p.name}
-              </span>
-              <span className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-navy">
-                <Clock className="h-4 w-4" aria-hidden="true" />
-                {p.minutes} min
+            <li key={p.name} className="group flex items-baseline gap-3 py-3">
+              <span className="text-sm font-medium text-slate-800 transition-colors group-hover:text-clay">{p.name}</span>
+              <span aria-hidden="true" className="flex-1 border-b border-dotted border-slate-300" />
+              <span className="shrink-0 font-display text-lg font-extrabold tracking-tight text-slate-900">
+                {p.minutes}
+                <span className="ml-1 font-sans text-xs font-semibold text-slate-500">min</span>
               </span>
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
     </section>
   );

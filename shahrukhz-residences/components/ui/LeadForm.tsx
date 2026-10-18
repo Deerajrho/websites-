@@ -4,7 +4,7 @@ import { contact, form, whatsappLink } from "@/lib/content";
 
 // No backend: the enquiry opens Optimum Point's WhatsApp with every field prefilled.
 // "card" = the short form; "full" adds a message box.
-export default function LeadForm({ variant = "card", dark = false }: { variant?: "card" | "full"; dark?: boolean }) {
+export default function LeadForm({ variant = "card" }: { variant?: "card" | "full" }) {
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
@@ -21,10 +21,9 @@ export default function LeadForm({ variant = "card", dark = false }: { variant?:
     window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
   }
 
-  const field = `mt-1.5 h-11 w-full rounded-md border px-3 text-sm ${
-    dark ? "border-white/25 bg-white/5 text-white placeholder:text-white/45" : "border-line bg-white placeholder:text-ink/40"
-  }`;
-  const label = `text-xs font-semibold uppercase tracking-wider ${dark ? "text-white/75" : "text-ink/70"}`;
+  const field =
+    "mt-2 h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm font-normal normal-case tracking-normal text-slate-900 placeholder:text-slate-500 transition-[border-color,box-shadow,background-color] duration-200 hover:border-slate-300 focus:border-clay focus:bg-white focus:outline-none focus:ring-4 focus:ring-clay/10 focus-visible:outline-none";
+  const label = "text-xs font-semibold uppercase tracking-wider text-slate-700";
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4 text-left sm:grid-cols-2">
@@ -57,16 +56,16 @@ export default function LeadForm({ variant = "card", dark = false }: { variant?:
       )}
       <button
         type="submit"
-        className="min-h-11 rounded-full bg-ocean px-6 text-sm font-semibold uppercase tracking-wider text-white hover:bg-navy sm:col-span-2"
+        className="min-h-12 cursor-pointer rounded-xl bg-clay px-6 text-sm font-semibold text-white shadow-float transition-[scale,background-color] duration-300 hover:bg-clay-hi motion-safe:hover:scale-[1.02] sm:col-span-2"
       >
         {form.submit}
       </button>
-      <p className={`text-xs sm:col-span-2 ${dark ? "text-white/65" : "text-ink/65"}`}>
+      <p className="text-xs text-slate-500 sm:col-span-2">
         Submitting opens WhatsApp with your details filled in; press send to finish. Your details go only to{" "}
         {contact.company}.{" "}
         <a
           href={`mailto:${contact.email}?subject=${encodeURIComponent("Shahrukhz Residences enquiry")}`}
-          className="underline underline-offset-4"
+          className="font-semibold text-clay underline underline-offset-4 hover:text-clay-hi"
         >
           {form.emailAlt}
         </a>

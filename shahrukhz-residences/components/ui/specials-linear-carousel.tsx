@@ -131,14 +131,14 @@ export const Carousel = ({
         onTouchStart={pause}
         onTouchEnd={() => setTimeout(resume, 4000)}
       >
-        <div className="mb-8 flex items-end justify-between gap-6">
+        <div className="mb-10 flex items-end justify-between gap-6">
           <div className="min-w-0 flex-1">{header}</div>
           {/* Touch screens swipe instead, so the arrows only show for mouse users. */}
           <div className="flex shrink-0 gap-3 pointer-coarse:hidden">
             <button
               type="button"
               aria-label={`Previous: ${label}`}
-              className="relative z-40 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-navy hover:bg-sky"
+              className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-900 transition-[scale,border-color,color] duration-300 hover:border-clay hover:text-clay motion-safe:hover:scale-105"
               onClick={() => step(-1)}
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -146,7 +146,7 @@ export const Carousel = ({
             <button
               type="button"
               aria-label={`Next: ${label}`}
-              className="relative z-40 flex h-11 w-11 items-center justify-center rounded-full bg-ocean text-white hover:bg-navy"
+              className="relative z-40 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl bg-clay text-white transition-[scale,background-color] duration-300 hover:bg-clay-hi motion-safe:hover:scale-105"
               onClick={() => step(1)}
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />
@@ -155,7 +155,7 @@ export const Carousel = ({
         </div>
         <div
           className={cn(
-            "@container flex w-full cursor-grab overflow-x-scroll overscroll-x-contain py-2 [scrollbar-width:none] active:cursor-grabbing [&::-webkit-scrollbar]:hidden",
+            "@container flex w-full cursor-grab overflow-x-scroll overscroll-x-contain py-4 [scrollbar-width:none] active:cursor-grabbing [&::-webkit-scrollbar]:hidden",
             isDragging && "cursor-grabbing",
           )}
           ref={carouselRef}

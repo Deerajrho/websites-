@@ -16,28 +16,34 @@ import PaymentPlan from "@/components/sections/PaymentPlan";
 import PriorityAccess from "@/components/sections/PriorityAccess";
 import Residences from "@/components/sections/Residences";
 
-// The page in reading order. Each section's copy lives in lib/content.ts.
+// App-style shell: sticky sidebar on desktop, and the sections laid out as a 12-column bento board.
+// Each section sets its own column span; pairs that sit side by side are listed next to each other.
+// Each section's copy lives in lib/content.ts.
 export default function Home() {
   return (
     <>
       <SmoothScroll />
-      <Header />
-      <main>
-        <Hero />
-        <KeyFacts />
-        <Intro />
-        <Residences />
-        <PaymentPlan />
-        <Amenities />
-        <Gallery />
-        <PriorityAccess />
-        <MasterPlan />
-        <Brochure />
-        <Location />
-        <Faq />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-4 p-3 sm:gap-6 sm:p-4 lg:grid-cols-[17rem_minmax(0,1fr)] lg:p-6">
+        <Header />
+        <div className="min-w-0 space-y-4 sm:space-y-6">
+          <main className="grid grid-cols-1 gap-4 sm:gap-6 xl:grid-cols-12">
+            <Hero />
+            <KeyFacts />
+            <Intro />
+            <Residences />
+            <PaymentPlan />
+            <MasterPlan />
+            <Amenities />
+            <Gallery />
+            <Location />
+            <PriorityAccess />
+            <Faq />
+            <Brochure />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </div>
       <MobileActionBar />
     </>
   );
