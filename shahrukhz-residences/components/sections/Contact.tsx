@@ -4,7 +4,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { closing, contact, newTab, whatsappLink } from "@/lib/content";
 
 // The deepest stretch: the phone number set large, the other ways in as ruled rows, the full form framed
-// on the right. The agent line names who answers.
+// on the right.
 export default function Contact() {
   const row = "group flex items-center gap-3 sm:gap-5 border-b border-line py-4 text-ink transition-colors duration-300";
   const tag = "chart-label w-[4.5rem] shrink-0 sm:w-20 text-muted";
@@ -33,7 +33,6 @@ export default function Contact() {
             <span className={tag}>Office</span> {contact.city}
           </li>
         </ul>
-        <p className="mt-6 text-xs text-muted">{closing.agent}</p>
       </div>
       <div className="border border-line bg-white/[0.03] p-5 sm:p-10 xl:col-span-7">
         <LeadForm variant="full" />

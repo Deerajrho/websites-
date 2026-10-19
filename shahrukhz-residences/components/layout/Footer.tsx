@@ -35,11 +35,10 @@ export default function Footer() {
               {/* <li><a href={`mailto:${contact.email}`} className={link}>{contact.email}</a></li> */}
               <li>{contact.city}</li>
             </ul>
-            <p className="mt-4 text-xs text-white/60">Marketed by {contact.company}</p>
           </address>
         </div>
         <p className="border-t border-white/10 py-6 text-xs leading-relaxed text-white/60">
-          {disclosure} © {new Date().getFullYear()} {contact.company}.
+          {disclosure}
         </p>
       </div>
     </footer>

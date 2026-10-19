@@ -2,7 +2,7 @@
 
 import { contact, form, whatsappLink } from "@/lib/content";
 
-// No backend: the enquiry opens Optimum Point's WhatsApp with every field prefilled.
+// No backend: the enquiry opens the sales team's WhatsApp with every field prefilled.
 // "card" = the short form; "full" adds a message box.
 export default function LeadForm({ variant = "card" }: { variant?: "card" | "full" }) {
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -63,8 +63,7 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
         {form.submit}
       </button>
       <p className="text-xs text-muted sm:col-span-2">
-        Submitting opens WhatsApp with your details filled in; press send to finish. Your details go only to{" "}
-        {contact.company}.{" "}
+        Submitting opens WhatsApp with your details filled in; press send to finish. Your details are used only to answer your enquiry.{" "}
         <a
           href={`mailto:${contact.email}?subject=${encodeURIComponent("Shahrukhz Residences enquiry")}`}
           className="font-semibold text-accent underline underline-offset-4 hover:text-ink"

@@ -11,21 +11,23 @@ export const contact = {
 };
 
 export const whatsappLink = (
-  text = "Hello Optimum Point, I would like details about Shahrukhz Residences by Danube.",
+  text = "Hello, I would like details about Shahrukhz Residences by Danube.",
 ) => `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text)}`;
 
 export const enquiry = (subject: string) =>
-  `Hello Optimum Point, I'm interested in ${subject} at Shahrukhz Residences by Danube. Please share availability and the floor plan.`;
+  `Hello, I'm interested in ${subject} at Shahrukhz Residences by Danube. Please share availability and the floor plan.`;
 
 export const seo = {
-  title: "Shahrukhz Residences by Danube | Dubai Maritime City | Optimum Point",
+  title: "Shahrukhz Residences by Danube | Dubai Maritime City",
   description:
-    "Fully furnished waterfront homes in Dubai Maritime City from AED 1.65M, with a 30/70 payment plan and handover in Q4 2029. Enquire with Optimum Point Business Solutions.",
+    "Fully furnished waterfront homes in Dubai Maritime City from AED 1.65M, with a 30/70 payment plan and handover in Q4 2029. Enquire for prices, floor plans and availability.",
 };
 
 // Shown in the footer: who runs this page and whose project it is.
+// The one place the agent is named, and it has to stay: enquiries and visitors' details go to the agent, not to
+// Danube, and Dubai property adverts must identify the agency. Keep it accurate if the wording changes.
 export const disclosure =
-  "This page is published by Shahrukhz Residences by Danube Business Solutions to market Shahrukhz Residences. It is not the developer's official website. Shahrukhz Residences is developed by Danube Properties. Prices, payment plans and availability are taken from the developer's sales presentation and may change; we confirm current figures on enquiry. Images are artist's impressions.";
+  "Independent marketing page by Optimum Point Business Solutions, not the developer's official website. Shahrukhz Residences is developed by Danube Properties; enquiries and the details you submit go to Optimum Point. Prices, payment plans and availability are from the developer's sales presentation and may change. Images are artist's impressions.";
 
 export const nav = [
   { title: "Residences", href: "#residences" },
@@ -190,7 +192,7 @@ export const faq = {
   eyebrow: "FAQ",
   title: "Questions about Shahrukhz Residences",
   items: [
-    { q: "Who is the developer?", a: "Shahrukhz Residences is developed by Danube Properties. Optimum Point Business Solutions markets the project and handles your enquiry." },
+    { q: "Who is the developer?", a: "Shahrukhz Residences is developed by Danube Properties. This page is run by an independent marketing agent, named at the foot of the page, who handles your enquiry." },
     { q: "What does a home cost?", a: "Prices start at AED 1.65M for a studio and reach AED 6.5M for a three-bedroom residence. We send the current price list on enquiry." },
     { q: "What is the payment plan?", a: "A 30/70 plan: 10% within 21 days of booking, 10% after 2 months, 5% after 10 months and 5% after 18 months, with 70% on handover." },
     { q: "When is handover?", a: "Handover is planned for Q4 2029, with the final payment due in December 2029." },
@@ -203,8 +205,6 @@ export const closing = {
   eyebrow: "Contact",
   title: "Shahrukhz Residences enquiries",
   body: "Ask about prices, the units still available and how to reserve. We reply on WhatsApp, by phone or by email.",
-  // Kept on the page: the contact details are the agency's, so visitors must be told who answers.
-  agent: "Enquiries are handled by Shahrukhz Residences , marketing agent for Shahrukhz Residences.",
 };
 
 export const form = {
