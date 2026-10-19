@@ -32,7 +32,6 @@ export default function Footer() {
             <h2 className={heading}>Shahrukhz Residences enquiries</h2>
             <ul className="mt-4 space-y-2 text-sm">
               <li><a href={contact.phoneHref} className={link}>{contact.phone}</a></li>
-              {/* <li><a href={`mailto:${contact.email}`} className={link}>{contact.email}</a></li> */}
               <li>{contact.city}</li>
             </ul>
           </address>

@@ -23,12 +23,6 @@ export default function Contact() {
               <ArrowUpRight className={arrow} aria-hidden="true" />
             </a>
           </li>
-          <li>
-            <a href={`mailto:${contact.email}`} className={`${row} break-all hover:text-accent`}>
-              <span className={tag}>Email</span> <span className="text-[0.8125rem] sm:text-sm">{contact.email}</span>
-              <ArrowUpRight className={arrow} aria-hidden="true" />
-            </a>
-          </li>
           <li className={row}>
             <span className={tag}>Office</span> {contact.city}
           </li>

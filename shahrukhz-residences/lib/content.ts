@@ -7,7 +7,6 @@ export const contact = {
   phone: "+971-52-267-6172",
   phoneHref: "tel:+971522676172",
   whatsapp: "971522676172",
-  email: "info@optimumpointbiz.com",
 };
 
 export const whatsappLink = (
@@ -212,7 +211,6 @@ export const form = {
   messageLabel: "Anything else?",
   messagePlaceholder: "For example: a sea-view 1 bedroom, best time to call",
   submit: "Submit",
-  emailAlt: "Or email us",
 };
 
 // Spread onto external links (WhatsApp) so they open in a new tab safely.
