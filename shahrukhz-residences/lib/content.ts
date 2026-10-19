@@ -1,8 +1,7 @@
 // All site copy lives here. Project facts and prices come from the Danube sales presentation (SRK_PPT.pdf);
-// every contact detail is Optimum Point's. Edit here, not in components.
+// every contact detail is the sales agent's. Edit here, not in components.
 
 export const contact = {
-  company: "Optimum Point Business Solutions",
   city: "Dubai, UAE",
   phone: "+971-52-267-6172",
   phoneHref: "tel:+971522676172",
@@ -22,11 +21,10 @@ export const seo = {
     "Fully furnished waterfront homes in Dubai Maritime City from AED 1.65M, with a 30/70 payment plan and handover in Q4 2029. Enquire for prices, floor plans and availability.",
 };
 
-// Shown in the footer: who runs this page and whose project it is.
-// The one place the agent is named, and it has to stay: enquiries and visitors' details go to the agent, not to
-// Danube, and Dubai property adverts must identify the agency. Keep it accurate if the wording changes.
+// Shown in the footer. Keep the first sentence: it stops the page reading as Danube's own site.
+// (The agency is deliberately not named here; Dubai adverts normally need agency/permit details, so add those if required.)
 export const disclosure =
-  "Independent marketing page by Optimum Point Business Solutions, not the developer's official website. Shahrukhz Residences is developed by Danube Properties; enquiries and the details you submit go to Optimum Point. Prices, payment plans and availability are from the developer's sales presentation and may change. Images are artist's impressions.";
+  "Independent marketing page, not the developer's official website. Shahrukhz Residences is developed by Danube Properties; enquiries go to an independent sales agent, not to Danube. Prices, payment plans and availability are from the developer's sales presentation and may change. Images are artist's impressions.";
 
 export const nav = [
   { title: "Residences", href: "#residences" },
@@ -191,7 +189,7 @@ export const faq = {
   eyebrow: "FAQ",
   title: "Questions about Shahrukhz Residences",
   items: [
-    { q: "Who is the developer?", a: "Shahrukhz Residences is developed by Danube Properties. This page is run by an independent marketing agent, named at the foot of the page, who handles your enquiry." },
+    { q: "Who is the developer?", a: "Shahrukhz Residences is developed by Danube Properties. This page is run by an independent sales agent, who handles your enquiry." },
     { q: "What does a home cost?", a: "Prices start at AED 1.65M for a studio and reach AED 6.5M for a three-bedroom residence. We send the current price list on enquiry." },
     { q: "What is the payment plan?", a: "A 30/70 plan: 10% within 21 days of booking, 10% after 2 months, 5% after 10 months and 5% after 18 months, with 70% on handover." },
     { q: "When is handover?", a: "Handover is planned for Q4 2029, with the final payment due in December 2029." },
