@@ -204,11 +204,23 @@ export const closing = {
   body: "Ask about prices, the units still available and how to reserve. We reply on WhatsApp, by phone or by email.",
 };
 
+// Enquiry forms are emailed to response@optimumluxurypro.com through Web3Forms (web3forms.com).
+// The access key is public by design (it only lets this site send to that inbox), so it can live here.
+// Leave it empty and the forms fall back to opening WhatsApp with the details filled in.
+export const web3formsKey = "";
+
 export const form = {
   interests: residences.items.map((r) => r.type),
   messageLabel: "Anything else?",
   messagePlaceholder: "For example: a sea-view 1 bedroom, best time to call",
   submit: "Submit",
+  sending: "Sending…",
+  thanksTitle: "Request received",
+  thanksBody: "Thank you for submitting a request. Our agent will get back to you shortly.",
+  error: "Sorry, your request couldn't be sent. Please try again, or message us on WhatsApp.",
+  errorCta: "Message us on WhatsApp",
+  privacy: "Your details are sent to our sales team and used only to answer your enquiry.",
+  privacyWhatsApp: "Submitting opens WhatsApp with your details filled in; press send to finish. Your details are used only to answer your enquiry.",
 };
 
 // Spread onto external links (WhatsApp) so they open in a new tab safely.
