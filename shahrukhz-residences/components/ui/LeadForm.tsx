@@ -1,6 +1,7 @@
 "use client";
 
 import { form, whatsappLink } from "@/lib/content";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 // No backend: the enquiry opens the sales team's WhatsApp with every field prefilled.
 // "card" = the short form; "full" adds a message box.
@@ -18,7 +19,7 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
+    openWhatsApp(whatsappLink(text)); // regular WhatsApp first on Android (see lib/whatsapp.ts)
   }
 
   // Chart-style fields: a single rule underneath that turns accent (and thicker) on focus.

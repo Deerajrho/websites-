@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import MobileActionBar from "@/components/layout/MobileActionBar";
 import Pane from "@/components/layout/Pane";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import WhatsAppLinks from "@/components/layout/WhatsAppLinks";
 import Amenities from "@/components/sections/Amenities";
 import Brochure from "@/components/sections/Brochure";
 import Contact from "@/components/sections/Contact";
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <>
       <SmoothScroll />
+      <WhatsAppLinks />
       <FrameBackdrop />
       <Header />
       <main>
