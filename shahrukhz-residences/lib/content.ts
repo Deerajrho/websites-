@@ -207,7 +207,7 @@ export const closing = {
 // Enquiry forms are emailed to response@optimumluxurypro.com through Web3Forms (web3forms.com).
 // The access key is public by design (it only lets this site send to that inbox), so it can live here.
 // Leave it empty and the forms fall back to opening WhatsApp with the details filled in.
-export const web3formsKey = "";
+export const web3formsKey = "e4278ec8-c106-471b-9a20-3cfdfd21333f";
 
 export const form = {
   interests: residences.items.map((r) => r.type),

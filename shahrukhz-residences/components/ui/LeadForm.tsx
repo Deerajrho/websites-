@@ -41,22 +41,20 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
     }
 
     setStatus("sending");
+    // Sent as plain form data with no custom headers: a "simple" cross-site request, so the browser skips the
+    // CORS preflight (an extra OPTIONS request that bot protection in front of Web3Forms can refuse).
+    const payload = new FormData();
+    payload.append("access_key", web3formsKey);
+    payload.append("subject", `Shahrukhz Residences enquiry: ${get("name")}`);
+    payload.append("from_name", "Shahrukhz Residences website");
+    payload.append("name", get("name"));
+    payload.append("phone", get("phone"));
+    payload.append("email", get("email")); // Web3Forms sets this as the reply-to address
+    payload.append("interest", get("interest"));
+    payload.append("message", get("message"));
+    payload.append("botcheck", f.get("botcheck") ? "on" : ""); // honeypot: only bots tick the hidden box
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: web3formsKey,
-          subject: `Shahrukhz Residences enquiry: ${get("name")}`,
-          from_name: "Shahrukhz Residences website",
-          name: get("name"),
-          phone: get("phone"),
-          email: get("email"), // Web3Forms sets this as the reply-to address
-          interest: get("interest"),
-          message: get("message"),
-          botcheck: f.get("botcheck") === "on", // honeypot: only bots tick the hidden box
-        }),
-      });
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: payload });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) throw new Error(data.message || `HTTP ${res.status}`);
       setStatus("sent");
