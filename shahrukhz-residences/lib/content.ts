@@ -17,7 +17,7 @@ export const enquiry = (subject: string) =>
 
 // The live address of the site. Used for the canonical link, the share image, sitemap.xml and robots.txt.
 // Change it when the site moves to its own domain (and update the Website URL in the Web3Forms form settings).
-export const siteUrl = "https://websites-jmas.vercel.app";
+export const siteUrl = "https://shahrukzresidencesdanube.com";
 
 export const seo = {
   title: "Shahrukhz Residences by Danube | Dubai Maritime City",
