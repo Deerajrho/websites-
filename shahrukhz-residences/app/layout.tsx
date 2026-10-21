@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, IBM_Plex_Mono, Manrope } from "next/font/google";
-import { seo } from "@/lib/content";
+import { contact, seo, siteUrl } from "@/lib/content";
 import "./globals.css";
 
 // Bodoni Moda: high-contrast editorial serif for headings; Manrope: clean body; IBM Plex Mono: chart labels.
@@ -21,23 +21,48 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const shareImage = { url: "/og.jpg", width: 1200, height: 630, alt: seo.shareImageAlt };
+
 export const metadata: Metadata = {
+  // Makes the canonical link and share image absolute URLs on the live address.
+  metadataBase: new URL(siteUrl),
   title: seo.title,
   description: seo.description,
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: seo.title,
     description: seo.description,
+    url: "/",
     siteName: "Shahrukhz Residences by Danube",
     type: "website",
     locale: "en_AE",
+    images: [shareImage],
   },
   twitter: {
     card: "summary_large_image",
     title: seo.title,
     description: seo.description,
+    images: [shareImage],
   },
 };
 
+// Structured data for search engines: the development itself (not the agency), with its location and contact.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ApartmentComplex",
+  name: "Shahrukhz Residences by Danube",
+  description: seo.description,
+  url: siteUrl,
+  image: `${siteUrl}/og.jpg`,
+  telephone: contact.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Dubai Maritime City",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
+  },
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -45,6 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/* Bottom padding on phones: room for the fixed call / WhatsApp / enquire bar. */}
       <body className="pb-16 lg:pb-0">
         {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>
   );

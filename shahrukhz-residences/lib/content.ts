@@ -15,10 +15,15 @@ export const whatsappLink = (
 export const enquiry = (subject: string) =>
   `Hello, I'm interested in ${subject} at Shahrukhz Residences by Danube. Please share availability and the floor plan.`;
 
+// The live address of the site. Used for the canonical link, the share image, sitemap.xml and robots.txt.
+// Change it when the site moves to its own domain (and update the Website URL in the Web3Forms form settings).
+export const siteUrl = "https://websites-jmas.vercel.app";
+
 export const seo = {
   title: "Shahrukhz Residences by Danube | Dubai Maritime City",
   description:
     "Fully furnished waterfront homes in Dubai Maritime City from AED 1.65M, with a 30/70 payment plan and handover in Q4 2029. Enquire for prices, floor plans and availability.",
+  shareImageAlt: "Shahrukhz Residences tower and marina on the Dubai waterfront (artist's impression)",
 };
 
 // Shown in the footer. Keep the first sentence: it stops the page reading as Danube's own site.
