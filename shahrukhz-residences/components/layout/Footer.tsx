@@ -19,7 +19,7 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm">Fully furnished waterfront residences in Dubai Maritime City.</p>
           </div>
           <nav aria-label="Footer" className="md:col-span-4">
-            <h2 className={heading}>On this page</h2>
+            <p className={heading}>On this page</p>
             <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
               {nav.map((n) => (
                 <li key={n.href}>
@@ -29,7 +29,7 @@ export default function Footer() {
             </ul>
           </nav>
           <address className="not-italic md:col-span-4">
-            <h2 className={heading}>Shahrukhz Residences enquiries</h2>
+            <p className={heading}>Shahrukhz Residences enquiries</p>
             <ul className="mt-4 space-y-2 text-sm">
               <li><a href={contact.phoneHref} className={link}>{contact.phone}</a></li>
               <li>{contact.city}</li>

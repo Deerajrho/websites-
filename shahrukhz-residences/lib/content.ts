@@ -20,9 +20,9 @@ export const enquiry = (subject: string) =>
 export const siteUrl = "https://shahrukzresidencesdanube.com";
 
 export const seo = {
-  title: "Shahrukhz Residences by Danube | Dubai Maritime City",
+  title: "Shahrukhz Residences by Danube: Prices & Payment Plan",
   description:
-    "Fully furnished waterfront homes in Dubai Maritime City from AED 1.65M, with a 30/70 payment plan and handover in Q4 2029. Enquire for prices, floor plans and availability.",
+    "Shahrukhz Residences by Danube in Dubai Maritime City: furnished studios to 3-bed homes from AED 1.65M, 30/70 payment plan, handover Q4 2029.",
   shareImageAlt: "Shahrukhz Residences tower and marina on the Dubai waterfront (artist's impression)",
 };
 
@@ -67,7 +67,7 @@ export const facts = [
 
 export const intro = {
   eyebrow: "Living on the water",
-  title: "A seafront address minutes from Downtown.",
+  title: "Waterfront living in Dubai Maritime City",
   body: [
     "Shahrukhz Residences rises from Dubai Maritime City, with the open Gulf on one side and the city skyline on the other. Every home is delivered fully furnished, and most layouts look straight out to sea.",
     "Life here is organised around three amenity decks: a resort-style podium for families, a wellness floor on Level 33 and a rooftop club on Level 60.",
@@ -79,7 +79,7 @@ export const intro = {
 // Starting and average prices per type, from the developer's configuration and pricing slides (AED).
 export const residences = {
   eyebrow: "Residences & prices",
-  title: "Choose your residence",
+  title: "Shahrukhz Residences prices and unit types",
   intro: "Nine layouts, all fully furnished, with skyline or panoramic sea views. Prices below are the developer's starting prices.",
   items: [
     { type: "Studio", views: "Skyline sea view", from: "1.65M", average: "1.85M", image: img("residences/studio") },
@@ -97,8 +97,8 @@ export const residences = {
 
 export const paymentPlan = {
   eyebrow: "Payment plan",
-  title: "Pay 30% while it's built, 70% on handover",
-  intro: "The developer's 30/70 plan spreads the first 30% across the first 18 months. The remaining 70% is due on handover in December 2029.",
+  title: "Shahrukhz Residences 30/70 payment plan",
+  intro: "Pay 30% while it's built and 70% on handover. The first 30% is spread across the first 18 months; the remaining 70% is due on handover in December 2029.",
   steps: [
     { percent: 10, label: "Down payment", when: "Within 21 days of booking" },
     { percent: 10, label: "Second instalment", when: "2 months after booking" },
@@ -119,7 +119,7 @@ export const paymentPlan = {
 
 export const amenities = {
   eyebrow: "Amenities",
-  title: "Over 40 amenities on three decks",
+  title: "40+ amenities across three decks",
   intro: "A family podium, a wellness floor and a rooftop club, each designed around the sea view.",
   items: [
     { title: "Beach lagoon", body: "A sandy lagoon with a hot tub and loungers by the water.", image: img("amenities/lagoon") },
@@ -155,7 +155,7 @@ export const priority = {
 
 export const masterPlan = {
   eyebrow: "Master plan",
-  title: "Three decks, one resort",
+  title: "Master plan: three amenity decks",
   intro: "The amenities are grouped on three levels, so families, fitness and socialising each have their own space.",
   decks: [
     { name: "Lifestyle deck", level: "Podium", body: "Lagoon, kids' aqua land, fountain plaza, sports courts and gardens.", image: img("plans/lifestyle") },
@@ -174,7 +174,7 @@ export const brochure = {
 // Drive times from the developer's presentation.
 export const location = {
   eyebrow: "Location",
-  title: "Dubai Maritime City, close to everything",
+  title: "Location: Dubai Maritime City",
   intro: "A waterfront district between Port Rashid and the city, with the main landmarks a short drive away. Times are the developer's estimates.",
   image: { src: img("site/location"), alt: "Shahrukhz Residences tower lit at night (artist's impression)" },
   places: [
@@ -199,6 +199,9 @@ export const faq = {
     { q: "What is the payment plan?", a: "A 30/70 plan: 10% within 21 days of booking, 10% after 2 months, 5% after 10 months and 5% after 18 months, with 70% on handover." },
     { q: "When is handover?", a: "Handover is planned for Q4 2029, with the final payment due in December 2029." },
     { q: "Are the homes furnished?", a: "Yes. Every residence is delivered fully furnished." },
+    { q: "Where is Shahrukhz Residences located?", a: "In Dubai Maritime City, about 2 minutes from Port Rashid Boat Station, 10 minutes from Burj Khalifa and Dubai Mall, and 15 minutes from Dubai International Airport (developer's estimates)." },
+    { q: "Which unit types are available?", a: "Studios, Flex Studios, 1-bedroom homes (standard, Flex, Flex Plus and King's), Flex Plus 2-bedroom Premium, King's 2-bedroom and 3-bedroom residences, all fully furnished." },
+    { q: "What amenities does Shahrukhz Residences have?", a: "More than 40, across a lifestyle podium, a wellness deck on Level 33 and a rooftop club on Level 60, including a beach lagoon, kids' aqua land, sports courts, a private cinema and a residents' yacht." },
     { q: "How do I reserve a unit?", a: "Send an enquiry and we will explain the expression of interest: AED 50,000 for studios and 1-bedroom homes, AED 100,000 for 2 bedrooms and above." },
   ],
 };
