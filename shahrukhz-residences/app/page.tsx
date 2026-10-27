@@ -16,6 +16,49 @@ import Location from "@/components/sections/Location";
 import MasterPlan from "@/components/sections/MasterPlan";
 import PaymentPlan from "@/components/sections/PaymentPlan";
 import Residences from "@/components/sections/Residences";
+import JsonLd, { agentNode } from "@/components/ui/JsonLd";
+import { contact, faq, seo, siteUrl } from "@/lib/content";
+
+// Structured data for search engines: the development (location, contact), the FAQ shown on the page,
+// and the sales agency, linked to the page as its publisher.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ApartmentComplex",
+      "@id": `${siteUrl}/#residence`,
+      name: "Shahrukhz Residences by Danube",
+      description: seo.description,
+      url: siteUrl,
+      image: `${siteUrl}/og.jpg`,
+      telephone: contact.phone,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Dubai Maritime City",
+        addressRegion: "Dubai",
+        addressCountry: "AE",
+      },
+    },
+    // Built from the same list as the visible FAQ section, so the two always match (Google requires that).
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#faq`,
+      mainEntity: faq.items.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+    agentNode,
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: siteUrl,
+      about: { "@id": `${siteUrl}/#residence` },
+      publisher: { "@id": `${siteUrl}/#agent` },
+    },
+  ],
+};
 
 // The fly-through plays behind the whole page as you scroll (sea, beach, house, courtyard, aerial);
 // the sections float over it as panes, light seafoam in the first half, deep ocean in the second.
@@ -47,6 +90,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileActionBar />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

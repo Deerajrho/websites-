@@ -1,5 +1,5 @@
 import Logo from "@/components/ui/Logo";
-import { contact, disclosure, nav } from "@/lib/content";
+import { agency, contact, disclosure, guideLink, nav } from "@/lib/content";
 
 // Where the fly-through lands: abyss-dark, quiet, everything at a glance.
 export default function Footer() {
@@ -21,7 +21,7 @@ export default function Footer() {
           <nav aria-label="Footer" className="md:col-span-4">
             <p className={heading}>On this page</p>
             <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
-              {nav.map((n) => (
+              {[...nav, guideLink].map((n) => (
                 <li key={n.href}>
                   <a href={n.href} className={link}>{n.title}</a>
                 </li>
@@ -37,6 +37,16 @@ export default function Footer() {
           </address>
         </div>
         <p className="border-t border-white/10 py-6 text-xs leading-relaxed text-white/60">
+          {(agency.orn || agency.brn || agency.permit) && (
+            <span className="block pb-2 text-white/75">
+              {[
+                agency.name,
+                agency.orn && `RERA ORN ${agency.orn}`,
+                agency.brn && `BRN ${agency.brn}`,
+                agency.permit && `Permit ${agency.permit}`,
+              ].filter(Boolean).join(" · ")}
+            </span>
+          )}
           {disclosure}
         </p>
       </div>

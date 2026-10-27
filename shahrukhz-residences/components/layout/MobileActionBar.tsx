@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MessageCircle, Phone, Send } from "lucide-react";
 import { contact, whatsappLink } from "@/lib/content";
 
@@ -17,10 +18,10 @@ export default function MobileActionBar() {
         <MessageCircle className="h-5 w-5 text-aqua" aria-hidden="true" />
         WhatsApp
       </a>
-      <a href="#contact" className={`${item} sea`}>
+      <Link href="/#contact" className={`${item} sea`}>
         <Send className="h-5 w-5" aria-hidden="true" />
         Enquire
-      </a>
+      </Link>
     </nav>
   );
 }

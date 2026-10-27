@@ -31,15 +31,29 @@ export const seo = {
 export const disclosure =
   "Independent marketing page, not the developer's official website. Shahrukhz Residences is developed by Danube Properties; enquiries go to an independent sales agent, not to Danube. Prices, payment plans and availability are from the developer's sales presentation and may change. Images are artist's impressions.";
 
+// The agency behind the page. The name and email appear only in the structured data (the visible page names
+// no agency, by choice). Its Dubai licence numbers (RERA ORN for the office, BRN for the broker, DLD/Trakheesi
+// permit for the advert) are empty until supplied; once any is filled in, the footer shows the name with them.
+export const agency = {
+  name: "Optimum Point Business Solutions",
+  email: "response@optimumluxurypro.com",
+  orn: "",
+  brn: "",
+  permit: "",
+};
+
+// Links start with "/" so they also work from the guide page; on the home page they still scroll in place.
 export const nav = [
-  { title: "Residences", href: "#residences" },
-  { title: "Payment plan", href: "#payment-plan" },
-  { title: "Amenities", href: "#amenities" },
-  { title: "Gallery", href: "#gallery" },
-  { title: "Master plan", href: "#master-plan" },
-  { title: "Location", href: "#location" },
-  { title: "FAQ", href: "#faq" },
+  { title: "Residences", href: "/#residences" },
+  { title: "Payment plan", href: "/#payment-plan" },
+  { title: "Amenities", href: "/#amenities" },
+  { title: "Gallery", href: "/#gallery" },
+  { title: "Master plan", href: "/#master-plan" },
+  { title: "Location", href: "/#location" },
+  { title: "FAQ", href: "/#faq" },
 ];
+
+export const guideLink = { title: "Off-plan buying guide", href: "/buying-off-plan-property-dubai" };
 
 const img = (name: string) => `/images/${name}.webp`;
 

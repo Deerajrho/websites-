@@ -26,7 +26,7 @@ export default function Header() {
           <a href={contact.phoneHref} className={`${link} hidden items-center gap-2 xl:flex`}>
             <Phone className="h-3.5 w-3.5 text-aqua" aria-hidden="true" /> {contact.phone}
           </a>
-          <Button href="#contact" className="min-h-10 px-4">Register interest</Button>
+          <Button href="/#contact" className="min-h-10 px-4">Register interest</Button>
         </div>
 
         <details className="relative lg:hidden">
@@ -34,7 +34,7 @@ export default function Header() {
             <Menu className="h-5 w-5" aria-hidden="true" />
           </summary>
           <nav aria-label="Mobile" className="absolute right-0 top-full mt-2 w-64 border border-white/10 bg-abyss py-2">
-            {[...nav, { title: "Contact", href: "#contact" }].map((n) => (
+            {[...nav, { title: "Contact", href: "/#contact" }].map((n) => (
               <a key={n.href} href={n.href} className={`${link} block px-5 py-3`}>
                 {n.title}
               </a>
