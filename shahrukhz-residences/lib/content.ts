@@ -3,9 +3,9 @@
 
 export const contact = {
   city: "Dubai, UAE",
-  phone: "+971-52-267-6172",
-  phoneHref: "tel:+971522676172",
-  whatsapp: "971522676172",
+  phone: "+971-52-267-6152",
+  phoneHref: "tel:+971522676152",
+  whatsapp: "971522676152",
 };
 
 export const whatsappLink = (
