@@ -10,7 +10,7 @@ export const contact = {
 
 export const whatsappLink = (
   text = "Hello, I would like details about Shahrukhz Residences by Danube.",
-) => `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text)}`;
+) => `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text).replace(/'/g, "%27")}`; // encodeURIComponent leaves ' raw
 
 export const enquiry = (subject: string) =>
   `Hello, I'm interested in ${subject} at Shahrukhz Residences by Danube. Please share availability and the floor plan.`;
