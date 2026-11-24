@@ -1,24 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { form, web3formsKey, whatsappLink } from "@/lib/content";
 import { openWhatsApp } from "@/lib/whatsapp";
 
-// Enquiries are emailed through Web3Forms (key and inbox in lib/content.ts), then the form is replaced by a
-// thank-you note. If sending fails, the visitor gets the same details as a WhatsApp message instead.
+// Enquiries are emailed through Web3Forms (key and inbox in lib/content.ts), then the visitor is taken to
+// the thank-you page (app/thank-you). If sending fails, the visitor gets the same details as a WhatsApp message instead.
 // With no key set, submitting opens WhatsApp with the details filled in, as before.
 // "card" = the short form; "full" adds a message box.
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "error";
 
 export default function LeadForm({ variant = "card" }: { variant?: "card" | "full" }) {
   const [status, setStatus] = useState<Status>("idle");
   const [fallback, setFallback] = useState(""); // WhatsApp link with the details, offered if email fails
-  const thanks = useRef<HTMLDivElement>(null);
-
-  // Move focus to the thank-you note so screen readers announce it and keyboard users aren't left behind.
-  useEffect(() => {
-    if (status === "sent") thanks.current?.focus();
-  }, [status]);
+  const router = useRouter();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -57,20 +53,11 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: payload });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) throw new Error(data.message || `HTTP ${res.status}`);
-      setStatus("sent");
+      router.push("/thank-you");
     } catch {
       setFallback(whatsappLink(text));
       setStatus("error");
     }
-  }
-
-  if (status === "sent") {
-    return (
-      <div ref={thanks} tabIndex={-1} role="status" aria-live="polite" className="py-6 text-left outline-none">
-        <p className="chart-label text-accent">{form.thanksTitle}</p>
-        <p className="mt-3 font-display text-2xl leading-snug text-ink sm:text-3xl">{form.thanksBody}</p>
-      </div>
-    );
   }
 
   // Chart-style fields: a single rule underneath that turns accent (and thicker) on focus.
