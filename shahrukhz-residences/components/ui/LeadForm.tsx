@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { form, web3formsKey, whatsappLink } from "@/lib/content";
+import { form, sheetsUrl, web3formsKey, whatsappLink } from "@/lib/content";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 // Enquiries are emailed through Web3Forms (key and inbox in lib/content.ts), then the visitor is taken to
@@ -34,6 +34,14 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
     if (!web3formsKey) {
       openWhatsApp(whatsappLink(text)); // regular WhatsApp first on Android (see lib/whatsapp.ts)
       return;
+    }
+
+    // Copy to the Google Sheet (see google-sheets-leads.gs), on its own so a failure there never blocks the email.
+    // no-cors: Apps Script doesn't send CORS headers; the row is still written, we just can't read the reply.
+    if (sheetsUrl) {
+      const row = new URLSearchParams({ page: location.pathname, botcheck: f.get("botcheck") ? "on" : "" });
+      for (const k of ["name", "phone", "email", "interest", "message"]) row.append(k, get(k));
+      fetch(sheetsUrl, { method: "POST", mode: "no-cors", body: row, keepalive: true }).catch(() => {});
     }
 
     setStatus("sending");

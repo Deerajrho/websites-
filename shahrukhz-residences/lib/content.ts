@@ -231,6 +231,10 @@ export const closing = {
 // Leave it empty and the forms fall back to opening WhatsApp with the details filled in.
 export const web3formsKey = "e4278ec8-c106-471b-9a20-3cfdfd21333f";
 
+// Each enquiry is also added as a row to a Google Sheet: paste the Apps Script web app URL here
+// (setup steps in google-sheets-leads.gs). Leave it empty to skip the Sheet.
+export const sheetsUrl = "";
+
 export const form = {
   interests: residences.items.map((r) => r.type),
   messageLabel: "Anything else?",
