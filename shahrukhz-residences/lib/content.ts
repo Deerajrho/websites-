@@ -233,7 +233,7 @@ export const web3formsKey = "e4278ec8-c106-471b-9a20-3cfdfd21333f";
 
 // Each enquiry is also added as a row to a Google Sheet: paste the Apps Script web app URL here
 // (setup steps in google-sheets-leads.gs). Leave it empty to skip the Sheet.
-export const sheetsUrl = "";
+export const sheetsUrl = "https://script.google.com/macros/s/AKfycbwft_1aLUa2AvTfG6B42L1smFVHf3u8wSmzqZBhnS_HUQxdZxT_tXwcKFmF9E8wsoM6/exec";
 
 export const form = {
   interests: residences.items.map((r) => r.type),
