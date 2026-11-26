@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { form, sheetsUrl, web3formsKey, whatsappLink } from "@/lib/content";
 import { openWhatsApp } from "@/lib/whatsapp";
 
@@ -14,7 +13,6 @@ type Status = "idle" | "sending" | "error";
 export default function LeadForm({ variant = "card" }: { variant?: "card" | "full" }) {
   const [status, setStatus] = useState<Status>("idle");
   const [fallback, setFallback] = useState(""); // WhatsApp link with the details, offered if email fails
-  const router = useRouter();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,7 +59,8 @@ export default function LeadForm({ variant = "card" }: { variant?: "card" | "ful
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: payload });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) throw new Error(data.message || `HTTP ${res.status}`);
-      router.push("/thank-you");
+      // Full page load (not client-side navigation) so Google Tag Manager registers the thank-you page view.
+      location.assign("/thank-you");
     } catch {
       setFallback(whatsappLink(text));
       setStatus("error");
