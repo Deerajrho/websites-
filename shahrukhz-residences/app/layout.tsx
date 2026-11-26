@@ -51,6 +51,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${bodoni.variable} ${manrope.variable} ${plexMono.variable}`}>
+      {/* Google tag (GTM-58SGW5WC), first thing in <head> on every page. Once only: it lives here, not in pages. */}
+      <head>
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-58SGW5WC" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());",
+          }}
+        />
+      </head>
       {/* Bottom padding on phones: room for the fixed call / WhatsApp / enquire bar. */}
       <body className="pb-16 lg:pb-0">
         {children}
